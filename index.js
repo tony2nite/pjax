@@ -21,6 +21,10 @@ var Pjax = function(options) {
 
     this.parseDOM(document)
 
+    if (this.options.history === false) {
+      return
+    }
+    
     on(window, "popstate", function(st) {
       if (st.state) {
         var opt = clone(this.options)
